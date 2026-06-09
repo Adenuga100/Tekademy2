@@ -1,6 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from '@playwright/test';
 import { LoginPage } from '../../pages/loginPage'
+import { title } from "process";
 // import { } from '../hooks/hook';
 
 // 1. Declare the variable at the top (without 'this')
@@ -130,3 +131,148 @@ Then('user receive an alert duration message as {string}', async (durationMessag
   expect(validationMessage).toBe(durationMessage);
 })
 
+
+
+
+
+When('User enter invalid email as {string}', async (email: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterEmail(email);
+})
+
+
+
+
+
+When('User enter tags as {string}', async (tags: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterTags(tags);
+})
+
+When('User select category as {string}', async (category: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.selectCategory(category);
+})
+
+When('User upload file {string}', async (filename: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.uploadFile(filename);
+})
+
+When('User click fileUrl and isPublished', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.clickFileUrlAndIsPublished();
+})
+
+When('User enter description as {string}', async  (descrip: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterDescription(descrip);
+})
+
+When('User enter fileUrl as {string}', async (fileUrl: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterFileUrl(fileUrl);
+})
+
+When('User enter title as {string}', async (title: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterTitle(title);
+})
+
+When('User click on Add Resource button', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.addResource();
+})
+
+When('User uncheck the Publish immediately checkbox',async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.uncheckPublish();
+})
+
+Then('User should be redirected to library page', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await expect( await loginPage.libraryPage()).toBeVisible({ timeout: 5000 });
+
+})
+
+When('User click on x button', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.close();
+})
+
+Then('User should see the search result with title', async () => {
+  // Write code here that turns the phrase above into concrete actions
+   await expect( await loginPage.resultTitle()).toBeVisible({ timeout: 5000 });
+})
+
+When('User enter title or url as {string}', async (titleorurl: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterSearchTerm(titleorurl);
+})
+
+When('User select {string} option', async (option: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.selectSearchOption(option);
+})
+
+Then('User should see the search results resources', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await expect( await loginPage.resultOptions()).toBeVisible({ timeout: 5000 });
+})
+
+When('User click on {string} dropdown', async (drop: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.clickSearchDropdown(drop);
+})
+
+Then('user is unable to click the Add Resource button', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await expect( await loginPage.unClick()).toBeDisabled({ timeout: 5000 });
+})
+
+
+When('User enter email as', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.randonmEmail();
+})
+
+
+When('User enter first name', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterFirstName();
+})
+
+When('User enter last name', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterLastName();
+})
+
+When('User enter strong password as {string}', async(psw: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.password(psw);
+})
+
+When('User enter DOB',async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.enterDOB();
+})
+
+When('User select any role',async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.selectRole();
+})
+
+When('User click on {string} link', async (forgotpsw: string) => {
+  // Write code here that turns the phrase above into concrete actions
+   await loginPage.forgetPassword(forgotpsw);
+})
+
+When('User backspace title to make it empty', async () => {
+  // Write code here that turns the phrase above into concrete actions
+   await loginPage.backspaceTitle();
+})
+
+When('user wait for the video to be uploaded', async  () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.waitForVideoUpload();
+})
