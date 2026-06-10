@@ -60,7 +60,7 @@ export class LoginPage {
 
     menuButton( menu: string) {
         // return this.page.locator(`text=${menu}`);
-        return this.page.getByRole('link', { name: menu });
+        return this.page.getByRole('link', { name: menu }); 
     }
     clickDropdownse(drop: string) {
      return this.page.getByRole('combobox').filter({ hasText: `${drop}` });
@@ -424,7 +424,7 @@ async enterFileUrl(fileUrl: string): Promise<void> {
     }
    
     async clickMenu(menu: string): Promise<void> {
-      await this.menuButton( menu).scrollIntoViewIfNeeded();
+      await this.menuButton(menu).scrollIntoViewIfNeeded();
       return await this.menuButton(menu).click();
     }
 
