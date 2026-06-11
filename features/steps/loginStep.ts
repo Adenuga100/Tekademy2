@@ -69,6 +69,7 @@ When('User click on {string} button', async function (btn: string) {
 
 When('User click on {string} menu', async (menus: string) => {
     // You must pass the 'page' object to a static method
+    await expect(loginPage.menuButton(menus)).toBeVisible({ timeout: 60000 });
     await loginPage.clickMenu(menus); 
 });
 
