@@ -432,7 +432,7 @@ async enterFileUrl(fileUrl: string): Promise<void> {
   
     async clickButton(btn: string): Promise<void>  {
        await this.clickBtn(btn).scrollIntoViewIfNeeded();
-       return await this.clickBtn(btn).click();
+       return await this.clickBtn(btn).click({ timeout: 10000 });
     }
  
 
