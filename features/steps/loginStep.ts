@@ -277,3 +277,13 @@ When('user wait for the video to be uploaded', async  () => {
   // Write code here that turns the phrase above into concrete actions
   await loginPage.waitForVideoUpload();
 })
+
+When('User enter email as {string}', async (email: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.emailexxist(email);
+})
+
+When('User select role as {string}', async (role: string) => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.selectARole(role);
+})

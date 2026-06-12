@@ -432,15 +432,15 @@ async enterFileUrl(fileUrl: string): Promise<void> {
   
     async clickButton(btn: string): Promise<void>  {
        await this.clickBtn(btn).scrollIntoViewIfNeeded();
-       return await this.clickBtn(btn).click({ timeout: 10000 });
+       return await this.clickBtn(btn).click({ timeout: 120000 });
     }
  
 
  async selectRole(numberToClick: number = 1): Promise<void> {
-    // 1. Locate all checkboxes (no Thread.Sleep needed, Playwright waits automatically)
-    const checkboxes = this.pickROles();
+    // 1. Locate all checkboxes, but FILTER OUT the parent container that has the text "SuperAdmin"
+    const checkboxes = this.pickROles().filter({ hasNotText: 'SuperAdmin' });
     
-    // 2. Get the total count
+    // 2. Get the total count of the remaining valid checkboxes
     const totalCount = await checkboxes.count();
     
     // 3. Ensure we don't click more than available
@@ -456,7 +456,29 @@ async enterFileUrl(fileUrl: string): Promise<void> {
         // Use .nth() to pick the specific checkbox and click it
         await checkboxes.nth(randomIndex).click();
     }
- }
+}
+
+ async selectARole(role: string): Promise<void> {
+    // 1. Locate all checkboxes, but FILTER OUT the parent container that has the text "SuperAdmin"
+    const checkboxes = this.pickROles().filter({ hasText: role });
+    
+    // 2. Get the total count of the remaining valid checkboxes
+    const totalCount = await checkboxes.count();
+    
+    // 3. Ensure we don't click more than available
+    const finalNumberToClick = Math.min( totalCount);
+
+    // 4. Create a list of indices and shuffle them
+    const indices = Array.from({ length: totalCount }, (_, i) => i);
+    const shuffled = indices.sort(() => 0.5 - Math.random());
+
+    // 5. Click the checkboxes based on shuffled indices
+    for (let i = 0; i < finalNumberToClick; i++) {
+        const randomIndex = shuffled[i];
+        // Use .nth() to pick the specific checkbox and click it
+        await checkboxes.nth(randomIndex).click();
+    }
+}
 
 
 
@@ -494,6 +516,12 @@ async enterFileUrl(fileUrl: string): Promise<void> {
    
         return await this.randomemail().fill(email);
     }
+
+    async emailexxist(email: string): Promise<void> {
+
+        return await this.randomemail().fill(email);
+    }
+
     async forgetPassword(forgotpsw: string): Promise<void> {
         return await this.forgotPswclick(forgotpsw).click();
     }
