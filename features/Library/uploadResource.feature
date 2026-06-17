@@ -4,8 +4,8 @@ Feature: Create an Admin
     Given I navigate to the login page
     When User enter valid email as "superAdmin@tekademy.io" 
     And User enter valid password as "Password123!"
-    # And User click on login button
-  And User click on "Continue with this email" button
+     And User click on login button
+  # And User click on "Continue with this email" button
 
 @LibraryResource
   Scenario: upload library resource successfully

@@ -3,8 +3,8 @@ Feature: User Login
     Given I navigate to the login page
     When User enter valid email as "superAdmin@tekademy.io" 
     And User enter valid password as "Password123!"
-   #  And User click on login button
-   And User click on "Continue with this email" button
+    And User click on login button
+   # And User click on "Continue with this email" button
     Then I should be redirected to the dashboard
 
  Scenario: Successful login with valid credentials by clicking on remember me checkbox
@@ -12,8 +12,8 @@ Feature: User Login
     When User enter valid email as "superAdmin@tekademy.io" 
     And User enter valid password as "Password123!"
     And User click on remember me checkbox
-   #  And User click on login button
-   And User click on "Continue with this email" button
+    And User click on login button
+   # And User click on "Continue with this email" button
     Then I should be redirected to the dashboard
 
  Scenario: Unsuccessful login with invalid credentials by clicking on remember me checkbox
@@ -21,6 +21,6 @@ Feature: User Login
     When User enter valid email as "superAdmin@tekademy.io" 
     And User enter valid password as "InvalidPassword123!"
     And User click on remember me checkbox
-   #  And User click on login button
-   And User click on "Continue with this email" button
+     And User click on login button
+   #  And User click on "Continue with this email" button
     Then user receive error message as "Invalid email or password"

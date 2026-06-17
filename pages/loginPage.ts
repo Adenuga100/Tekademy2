@@ -18,7 +18,7 @@ export class LoginPage {
     }
 
     clickLoginBtn() {
-     return this.page.locator('button[type="submit"]');
+     return this.page.locator('//button[text()="Continue with this email"]');
     }
 
     clickRememberMe() {
