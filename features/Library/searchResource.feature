@@ -14,20 +14,28 @@ Feature: Create an Admin
     Then User should see the search result with title
 
 @search2
-  Scenario: search library resource with All types
+  Scenario: search library resource on All types with video or document
     When User click on "Library" menu
     And User click on "All types" dropdown
     And User select "Video" option
     Then User should see the search results resources
+
 @search3
-  Scenario: search library resource with All types
+  Scenario: search library resource on All categories with Tester or Developer
     When User click on "Library" menu
     And User click on "All Categories" dropdown
     And User select "Tester" option
     Then User should see the search results resources
 @search4
-  Scenario: search library resource with All types
+  Scenario: search library resource on All status with Published or draft
     When User click on "Library" menu
     And User click on "All Status" dropdown
     And User select "Published" option
     Then User should see the search results resources
+
+@search5
+  Scenario: verify that number of library users  matches the total resources on library page
+    When User click on "Library" menu
+    And user view the total number of resources on library page
+    Then User should see the total number of resources matches the total resources on library page
+

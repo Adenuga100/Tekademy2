@@ -70,6 +70,10 @@ export class LoginPage {
         return this.page.getByRole('option', { name: `${options}` }).first(); // Adjust the locator as needed
     }
 
+    numberOfResourcesLocator() {
+        return this.page.locator('//h3[text()]//span'); // Adjust the locator as needed
+    }
+
     files() {
      return this.page.locator('input[type="file"]');
     }
@@ -130,6 +134,10 @@ export class LoginPage {
 
     clickAddResource() {
      return this.page.locator('button[type="submit"]');
+    }
+
+    totalNumber() {
+     return this.page.locator('(//div[text()="Total Resources"]/following::p)[1]');
     }
 
     unCheck() {
@@ -329,6 +337,12 @@ export class LoginPage {
         return await this.clickAddResource();
     }
 
+    async totalNumberOfResources(): Promise<boolean> {
+         await this.totalNumber();
+        let totalNumberOfResource = await this.totalNumber().getAttribute('value') || '';
+        return totalNumberOfResource === this.numberOfResource;
+    }
+
     async libraryPage(): Promise<Locator> {
         
         return await this.libraryPages();
@@ -389,6 +403,13 @@ async selectSearchOption(option: string): Promise<void> {
 
     // Store the value you just clicked for verification later
     this.storedOption = option; 
+}
+
+numberOfResource: string = '';
+
+
+async numberOfResources(): Promise<void> {
+    this.numberOfResource = (await this.numberOfResourcesLocator().getAttribute('value')) || '';
 }
 
 

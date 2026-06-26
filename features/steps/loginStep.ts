@@ -287,3 +287,13 @@ When('User select role as {string}', async (role: string) => {
   // Write code here that turns the phrase above into concrete actions
   await loginPage.selectARole(role);
 })
+
+Then('User should see the total number of resources matches the total resources on library page', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await expect( await loginPage.totalNumberOfResources()).toBe(true);
+})
+
+When('user view the total number of resources on library page', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await loginPage.numberOfResources();
+})
