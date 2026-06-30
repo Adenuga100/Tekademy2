@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect,Locator, Page } from "@playwright/test";
 // import { page } from "../hooks/hook";
 // import path from "path";
 // import process from "node:process";
@@ -60,8 +60,10 @@ export class LoginPage {
 
     menuButton( menu: string) {
         // return this.page.locator(`text=${menu}`);
+        
         return this.page.getByRole('link', { name: menu }); 
     }
+    
     clickDropdownse(drop: string) {
      return this.page.getByRole('combobox').filter({ hasText: `${drop}` });
     }
@@ -216,7 +218,14 @@ export class LoginPage {
     }
 
     async clickLoginButton(): Promise<void> {
-        return await this.clickLoginBtn().click();
+         await this.clickLoginBtn().click();
+        console.log("Current URL:", this.page.url());
+
+        await expect(this.page).toHaveURL(/dashboard/, {
+            timeout: 60000,
+        });
+
+        console.log("Dashboard loaded");
     }
 
 
@@ -446,6 +455,7 @@ async enterFileUrl(fileUrl: string): Promise<void> {
    
     async clickMenu(menu: string): Promise<void> {
     //   await this.menuButton(menu).scrollIntoViewIfNeeded();
+    
       return await this.menuButton(menu).click();
     }
 
