@@ -33,9 +33,9 @@ When('User enter valid email as {string}', async function (email: string)   {
 
 
 
-When('User click on login button', async () => {
+When('User click on login button', async (timeout: 90000) => {
   // Write code here that turns the phrase above into concrete actions
-  await loginPage.clickLoginButton();
+  await loginPage.clickLoginButton({ timeout: timeout });
   
 })
 
@@ -67,9 +67,9 @@ When('User click on {string} button', async function (btn: string) {
 
 
 
-When('User click on {string} menu', async (menus: string) => {
+When('User click on {string} menu', async (menus: string, timeout: 90000) => {
     // You must pass the 'page' object to a static method
-    await expect(loginPage.menuButton(menus)).toBeVisible({ timeout: 60000 });
+    await expect(loginPage.menuButton(menus)).toBeVisible({ timeout: timeout });
     
     await loginPage.clickMenu(menus); 
 });

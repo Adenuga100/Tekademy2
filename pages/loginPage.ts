@@ -217,14 +217,14 @@ export class LoginPage {
         return await this.emailInput().fill(email);
     }
 
-    async clickLoginButton(): Promise<void> {
+    async clickLoginButton(p0: { timeout: 90000; }): Promise<void> {
         await this.clickLoginBtn().click();
 
-        console.log("Current URL:", this.page.url());
-        console.log("Page title:", await this.page.title());
+        // console.log("Current URL:", this.page.url());
+        // console.log("Page title:", await this.page.title());
 
-        const body = await this.page.textContent("body");
-        console.log(body?.substring(0, 500));
+        // const body = await this.page.textContent("body");
+        // console.log(body?.substring(0, 500));
         return;
     //     console.log("Current URL:", this.page.url());
 
