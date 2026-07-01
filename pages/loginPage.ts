@@ -217,7 +217,7 @@ export class LoginPage {
         return await this.emailInput().fill(email);
     }
 
-    async clickLoginButton(p0: { timeout: 90000; }): Promise<void> {
+    async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().click();
 
         // console.log("Current URL:", this.page.url());
