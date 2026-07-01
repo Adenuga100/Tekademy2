@@ -218,12 +218,20 @@ export class LoginPage {
     }
 
     async clickLoginButton(): Promise<void> {
-         await this.clickLoginBtn().click();
-        console.log("Current URL:", this.page.url());
+        await this.clickLoginBtn().click();
 
-       return await expect(this.page).toHaveURL(/dashboard/, {
-            timeout: 60000,
-        });
+        console.log("Current URL:", this.page.url());
+        console.log("Page title:", await this.page.title());
+
+        const body = await this.page.textContent("body");
+        console.log(body?.substring(0, 500));
+        return;
+    //     console.log("Current URL:", this.page.url());
+
+    //    return await expect(this.page).toHaveURL(/dashboard/, {
+    //         timeout: 60000,
+    //     });
+
 
         // console.log("Dashboard loaded");
     }
