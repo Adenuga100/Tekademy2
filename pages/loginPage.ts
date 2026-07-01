@@ -221,11 +221,11 @@ export class LoginPage {
          await this.clickLoginBtn().click();
         console.log("Current URL:", this.page.url());
 
-        await expect(this.page).toHaveURL(/dashboard/, {
+       return await expect(this.page).toHaveURL(/dashboard/, {
             timeout: 60000,
         });
 
-        console.log("Dashboard loaded");
+        // console.log("Dashboard loaded");
     }
 
 
