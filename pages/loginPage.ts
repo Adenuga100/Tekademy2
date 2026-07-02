@@ -60,10 +60,10 @@ export class LoginPage {
     }
      
 
-    menuButton( menu: string) {
+    menuButton( menus: string) {
         // return this.page.locator(`text=${menu}`);
-         this.page.waitForLoadState('networkidle');
-        return this.page.getByRole('link', { name: menu }); 
+        //  this.page.waitForLoadState('networkidle');
+        return this.page.getByRole('link', { name: menus }); 
     }
     
     clickDropdownse(drop: string) {
@@ -463,10 +463,11 @@ async enterFileUrl(fileUrl: string): Promise<void> {
         
     }
    
-    async clickMenu(menu: string): Promise<void> {
-      await this.menuButton(menu).scrollIntoViewIfNeeded();
+    async clickMenu(menus: string): Promise<void> {
+        // await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
+        await this.menuButton(menus).scrollIntoViewIfNeeded();
     
-       await this.menuButton(menu).click();
+       await this.menuButton(menus).click();
     }
 
 
