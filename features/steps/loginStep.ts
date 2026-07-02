@@ -40,8 +40,6 @@ When('User click on login button', async () => {
 })
 
 
-
-
 Then('I should be redirected to the dashboard', async () => {
   // Write code here that turns the phrase above into concrete actions
   await expect( await loginPage.getHomeTitle()).toBeVisible({ timeout: 5000 });
@@ -49,12 +47,12 @@ Then('I should be redirected to the dashboard', async () => {
 
 When('User click on remember me checkbox', async () => {
   // Write code here that turns the phrase above into concrete actions
-   await loginPage.clickRememberMeCheckbox();
+  await loginPage.clickRememberMeCheckbox();
 })
 
 Then('user receive error message as {string}', async (expectedMessage: string) => {
   // Write code here that turns the phrase above into concrete actions
-   await expect( await loginPage.errorMessage(expectedMessage)).toHaveText(expectedMessage);
+  await expect( await loginPage.errorMessage(expectedMessage)).toHaveText(expectedMessage);
 })
 
 
@@ -68,20 +66,17 @@ When('User click on {string} button', async function (btn: string) {
 
 
 When('User click on {string} menu', async (menus: string) => {
-    // You must pass the 'page' object to a static method
-    //  await expect(loginPage.menuButton(menus)).toBeVisible({
-    //     timeout: 60000,
-    // });
-    
+  // Write code here that turns the phrase above into concrete actions
+  return await loginPage.clickMenu(menus);
 
-    return await loginPage.clickMenu(menus);
-});
+})
 
 
 
 When('User enter time', async () => {
   // Write code here that turns the phrase above into concrete actions
   await loginPage.picktimes();
+
 })
 
 

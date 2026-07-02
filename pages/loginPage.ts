@@ -60,7 +60,7 @@ export class LoginPage {
     }
      
 
-    menuButton( menus: string) {
+    menuButton(menus: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
         return this.page.getByRole('link', { name: menus }); 
@@ -464,7 +464,8 @@ async enterFileUrl(fileUrl: string): Promise<void> {
     }
    
     async clickMenu(menus: string): Promise<void> {
-        // await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
+
+        await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
         await this.menuButton(menus).scrollIntoViewIfNeeded();
     
        await this.menuButton(menus).click();
