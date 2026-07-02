@@ -62,7 +62,7 @@ export class LoginPage {
 
     menuButton( menu: string) {
         // return this.page.locator(`text=${menu}`);
-        
+         this.page.waitForLoadState('networkidle');
         return this.page.getByRole('link', { name: menu }); 
     }
     
