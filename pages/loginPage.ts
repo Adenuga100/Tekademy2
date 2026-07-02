@@ -18,7 +18,9 @@ export class LoginPage {
     }
 
     clickLoginBtn() {
-     return this.page.locator('//button[text()="Continue with this email"]');
+
+     return this.page.getByRole('button', { name: 'Continue with this email' });
+     
     }
 
     clickRememberMe() {
