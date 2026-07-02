@@ -303,3 +303,7 @@ When('user view the total number of resources on library page', async () => {
   // Write code here that turns the phrase above into concrete actions
   await loginPage.numberOfResources();
 })
+
+Given('I navigate to the {string}', (s: string) => {
+  // Write code here that turns the phrase above into concrete actions
+})
