@@ -464,7 +464,7 @@ async enterFileUrl(fileUrl: string): Promise<void> {
     }
    
     async clickMenu(menu: string): Promise<void> {
-    //   await this.menuButton(menu).scrollIntoViewIfNeeded();
+      await this.menuButton(menu).scrollIntoViewIfNeeded();
     
       return await this.menuButton(menu).click();
     }
