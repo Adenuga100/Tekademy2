@@ -66,7 +66,7 @@ export class LoginPage {
     menuButton(menus: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
-        return this.page.locator(`//span[text()="${menus}"]`); 
+        return this.page.locator('//span[text()="User Management"]'); 
     }
     
     clickDropdownse(drop: string) {
