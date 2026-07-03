@@ -17,7 +17,7 @@ export class LoginPage {
      return this.page.locator('input[id="email"]');
     }
 
-    async clickLoginBtn() {
+    async clickLoginBtn(): Promise<Locator> {
 
      //  return this.page.getByRole('button', { name: 'Continue with this email' });
      
