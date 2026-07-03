@@ -21,7 +21,8 @@ export class LoginPage {
 
      //  return this.page.getByRole('button', { name: 'Continue with this email' });
      
-      return this.page.locator('button').filter({ hasText: 'Continue with this email' });
+    //   return this.page.locator('button').filter({ hasText: 'Continue with this email' });
+      return this.page.locator('[type="submit"]');
      
     }
 
@@ -65,7 +66,7 @@ export class LoginPage {
     menuButton(menus: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
-        return this.page.locator('link', { hasText: `${menus}` }); 
+        return this.page.locator('span').filter({ hasText: `${menus}` }).first(); 
     }
     
     clickDropdownse(drop: string) {
