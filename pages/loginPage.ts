@@ -17,12 +17,12 @@ export class LoginPage {
      return this.page.locator('input[id="email"]');
     }
 
-    async clickLoginBtn(): Promise<Locator> {
+    clickLoginBtn() {
 
      //  return this.page.getByRole('button', { name: 'Continue with this email' });
      
      //   return this.page.locator('button').filter({ hasText: 'Continue with this email' });
-      return await this.page.locator('[type="submit"]');
+      return  this.page.locator('[type="submit"]');
      
     }
 
