@@ -35,7 +35,7 @@ When('User enter valid email as {string}', async function (email: string)   {
 
 When('User click on login button', async function() {
   // Write code here that turns the phrase above into concrete actions
-  return await loginPage.clickLoginButton();
+   await loginPage.clickLoginButton();
   
 })
 
