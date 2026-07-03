@@ -19,7 +19,9 @@ export class LoginPage {
 
     clickLoginBtn() {
 
-     return this.page.getByRole('button', { name: 'Continue with this email' });
+     //  return this.page.getByRole('button', { name: 'Continue with this email' });
+     
+      return this.page.locator('button').filter({ hasText: 'Continue with this email' });
      
     }
 
