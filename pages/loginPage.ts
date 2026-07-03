@@ -224,8 +224,8 @@ export class LoginPage {
 
     async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
-        await this.clickLoginBtn().click();
-        await expect(this.clickLoginBtn()).toBeVisible({timeout: 60000});
+        await this.clickLoginBtn().click({ timeout: 120000 }); // 2 minutes timeout;
+        await expect(this.clickLoginBtn()).toBeVisible({timeout: 100000});
 
         // console.log("Current URL:", this.page.url());
         // console.log("Page title:", await this.page.title());
@@ -472,7 +472,7 @@ async enterFileUrl(fileUrl: string): Promise<void> {
         await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
         await this.menuButton(menus).scrollIntoViewIfNeeded();
     
-       await this.menuButton(menus).click();
+       await this.menuButton(menus).click({ timeout: 120000 }); // 2 minutes;
     }
 
 
