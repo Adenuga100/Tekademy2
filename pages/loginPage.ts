@@ -64,10 +64,11 @@ export class LoginPage {
     }
      
 
-    menuButton(menus: string) {
+    menuButton(menus1: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
-        return this.page.locator('//span[text()="User Management"]'); 
+        // return this.page.locator('//span[text()="User Management"]'); 
+        return this.page.locator(`span:has-text("${menus1}")`);
     }
     
     clickDropdownse(drop: string) {
@@ -469,11 +470,11 @@ async enterFileUrl(fileUrl: string): Promise<void> {
         
     }
    
-    async clickMenu(menus: string): Promise<void> {
-        await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
-        await this.menuButton(menus).scrollIntoViewIfNeeded();
+    async clickMenu(menus1: string): Promise<void> {
+        await expect(this.menuButton(menus1)).toBeVisible({timeout: 60000});
+        await this.menuButton(menus1).scrollIntoViewIfNeeded();
     
-       await this.menuButton(menus).click({ timeout: 120000 }); // 2 minutes;
+       await this.menuButton(menus1).click({ timeout: 120000 }); // 2 minutes;
     }
 
 

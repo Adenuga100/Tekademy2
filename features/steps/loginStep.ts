@@ -65,9 +65,9 @@ When('User click on {string} button', async function (btn: string) {
 
 
 
-When('User click on {string} menu', async (menus: string) => {
+When('User click on {string} menu', async (menus1: string) => {
   // Write code here that turns the phrase above into concrete actions
-  return await loginPage.clickMenu(menus);
+  return await loginPage.clickMenu(menus1);
 
 })
 
