@@ -220,6 +220,7 @@ export class LoginPage {
     }
 
     async clickLoginButton(): Promise<void> {
+        await this.clickLoginBtn().scrollIntoViewIfNeeded();
         await this.clickLoginBtn().click();
         await expect(this.clickLoginBtn()).toBeVisible({timeout: 60000});
 
