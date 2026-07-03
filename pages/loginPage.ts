@@ -65,7 +65,7 @@ export class LoginPage {
     menuButton(menus: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
-        return this.page.getByRole('link', { name: menus }); 
+        return this.page.locator('link', { hasText: `${menus}` }); 
     }
     
     clickDropdownse(drop: string) {
