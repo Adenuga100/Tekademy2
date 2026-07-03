@@ -17,12 +17,12 @@ export class LoginPage {
      return this.page.locator('input[id="email"]');
     }
 
-    clickLoginBtn() {
+    async clickLoginBtn() {
 
      //  return this.page.getByRole('button', { name: 'Continue with this email' });
      
-    //   return this.page.locator('button').filter({ hasText: 'Continue with this email' });
-      return this.page.locator('[type="submit"]');
+     //   return this.page.locator('button').filter({ hasText: 'Continue with this email' });
+      return await this.page.locator('[type="submit"]');
      
     }
 
@@ -59,6 +59,7 @@ export class LoginPage {
     }
     
     clickBtn(btn: string) {
+
      return this.page.locator(`button:has-text("${btn}")`);
     }
      
@@ -224,7 +225,7 @@ export class LoginPage {
 
     async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
-        await this.clickLoginBtn().click({ timeout: 120000 }); // 2 minutes timeout;
+        await this.clickLoginBtn().click({timeout: 120000}); // 2 minutes timeout;
         await expect(this.clickLoginBtn()).toBeVisible({timeout: 100000});
 
         // console.log("Current URL:", this.page.url());
