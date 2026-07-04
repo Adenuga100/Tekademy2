@@ -226,15 +226,14 @@ export class LoginPage {
 
     async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
-        await this.clickLoginBtn().click({timeout: 120000}); // 2 minutes timeout;
-        await expect(this.homeTitle()).toBeVisible({timeout: 150000});
+        await this.clickLoginBtn().click(); // 2 minutes timeout;
+        return await expect(this.homeTitle()).toBeVisible({timeout: 150000});
 
         // console.log("Current URL:", this.page.url());
         // console.log("Page title:", await this.page.title());
 
         // const body = await this.page.textContent("body");
         // console.log(body?.substring(0, 500));
-        return;
     //     console.log("Current URL:", this.page.url());
 
     //    return await expect(this.page).toHaveURL(/dashboard/, {
