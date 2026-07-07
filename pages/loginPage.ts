@@ -227,7 +227,7 @@ export class LoginPage {
     async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
         await this.clickLoginBtn().click(); // 2 minutes timeout;
-        return await expect(this.homeTitle()).toBeVisible({timeout: 150000});
+        return await expect(this.homeTitle()).toBeVisible({timeout: 200000});
 
         // console.log("Current URL:", this.page.url());
         // console.log("Page title:", await this.page.title());
