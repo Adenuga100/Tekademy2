@@ -228,7 +228,7 @@ export class LoginPage {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
         
         await this.clickLoginBtn().click({ timeout: 30000 }); // 2 minutes timeout;
-        await this.page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 });
+        // await this.page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 });
   
         // OR if not navigating to a new page, wait for the dashboard/home element
          await this.page.waitForSelector('img[class="object-contain w-full"]', { timeout: 30000 });
