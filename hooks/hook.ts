@@ -1,7 +1,8 @@
 import { Before, After, BeforeAll, AfterAll, setDefaultTimeout } from "@cucumber/cucumber";
 import { chromium, Browser, Page } from "@playwright/test";
 // import { CustomWorld } from '../hooks/world';
-setDefaultTimeout(1 * 60 * 1000);let browser: Browser;
+setDefaultTimeout(1 * 60 * 3000);
+let browser: Browser;
 let page: Page;
 
 // Before(async function () {
@@ -11,8 +12,15 @@ let page: Page;
 // });
 Before(async function () {
     const isCI = !!process.env.CI;
- //    browser = await chromium.launch({ headless: true });
- browser = await chromium.launch({ headless: true }); // GitHub needs headless: true
+
+browser = await chromium.launch({
+    headless: true,
+    args: isCI
+        ? ['--no-sandbox', '--disable-setuid-sandbox']
+        : []
+});
+    // browser = await chromium.launch({ headless: true, args: isCI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [] });
+//  browser = await chromium.launch({ headless: true }); // GitHub needs headless: true
     this.context = await browser.newContext();
     this.page = await this.context.newPage(); 
 });

@@ -19,7 +19,10 @@ export class LoginPage {
 
     clickLoginBtn() {
 
-     return this.page.getByRole('button', { name: 'Continue with this email' });
+     //  return this.page.getByRole('button', { name: 'Continue with this email' });
+     
+     //   return this.page.locator('button').filter({ hasText: 'Continue with this email' });
+      return  this.page.locator('[type="submit"]');
      
     }
 
@@ -56,14 +59,16 @@ export class LoginPage {
     }
     
     clickBtn(btn: string) {
+
      return this.page.locator(`button:has-text("${btn}")`);
     }
      
 
-    menuButton(menus: string) {
+    menuButton(menus1: string) {
         // return this.page.locator(`text=${menu}`);
         //  this.page.waitForLoadState('networkidle');
-        return this.page.getByRole('link', { name: menus }); 
+        // return this.page.locator('//span[text()="User Management"]'); 
+        return this.page.locator(`span:has-text("${menus1}")`);
     }
     
     clickDropdownse(drop: string) {
@@ -220,14 +225,15 @@ export class LoginPage {
     }
 
     async clickLoginButton(): Promise<void> {
-        await this.clickLoginBtn().click();
+        await this.clickLoginBtn().scrollIntoViewIfNeeded();
+        await this.clickLoginBtn().click(); // 2 minutes timeout;
+        return await expect(this.homeTitle()).toBeVisible({timeout: 200000});
 
         // console.log("Current URL:", this.page.url());
         // console.log("Page title:", await this.page.title());
 
         // const body = await this.page.textContent("body");
         // console.log(body?.substring(0, 500));
-        return;
     //     console.log("Current URL:", this.page.url());
 
     //    return await expect(this.page).toHaveURL(/dashboard/, {
@@ -463,12 +469,11 @@ async enterFileUrl(fileUrl: string): Promise<void> {
         
     }
    
-    async clickMenu(menus: string): Promise<void> {
-
-        await expect(this.menuButton(menus)).toBeVisible({timeout: 60000});
-        await this.menuButton(menus).scrollIntoViewIfNeeded();
+    async clickMenu(menus1: string): Promise<void> {
+        await expect(this.menuButton(menus1)).toBeVisible({timeout: 60000});
+        await this.menuButton(menus1).scrollIntoViewIfNeeded();
     
-       await this.menuButton(menus).click();
+       await this.menuButton(menus1).click({ timeout: 120000 }); // 2 minutes;
     }
 
 

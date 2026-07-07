@@ -1,6 +1,6 @@
 @AdminCreation
 Feature: Create an Admin
-    Background: Successful login with valid credentials
+  Background: Successful login with valid credentials
     Given I navigate to the login page
     When User enter valid email as "superAdmin@tekademy.io" 
     And User enter valid password as "Password123!"

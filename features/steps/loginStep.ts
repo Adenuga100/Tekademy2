@@ -33,9 +33,9 @@ When('User enter valid email as {string}', async function (email: string)   {
 
 
 
-When('User click on login button', async () => {
+When('User click on login button', async function() {
   // Write code here that turns the phrase above into concrete actions
-  await loginPage.clickLoginButton();
+   await loginPage.clickLoginButton();
   
 })
 
@@ -65,9 +65,9 @@ When('User click on {string} button', async function (btn: string) {
 
 
 
-When('User click on {string} menu', async (menus: string) => {
+When('User click on {string} menu', async (menus1: string) => {
   // Write code here that turns the phrase above into concrete actions
-  return await loginPage.clickMenu(menus);
+  return await loginPage.clickMenu(menus1);
 
 })
 
@@ -298,3 +298,7 @@ When('user view the total number of resources on library page', async () => {
   // Write code here that turns the phrase above into concrete actions
   await loginPage.numberOfResources();
 })
+
+// Given('I navigate to the {string}', (s: string) => {
+//   // Write code here that turns the phrase above into concrete actions
+// })
