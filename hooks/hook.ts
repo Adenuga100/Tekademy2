@@ -16,8 +16,7 @@ Before(async function () {
 browser = await chromium.launch({
     headless: true,
     args: isCI
-        ? ['--no-sandbox', '--disable-setuid-sandbox']
-        : []
+        ? ['--no-sandbox', '--disable-setuid-sandbox']: []
 });
     // browser = await chromium.launch({ headless: true, args: isCI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [] });
 //  browser = await chromium.launch({ headless: true }); // GitHub needs headless: true
