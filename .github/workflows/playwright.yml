@@ -18,7 +18,7 @@ jobs:
     - name: Install PlaywriShiftght Browsers
       run: npx playwright install --with-deps
     - name: Run tests
-      run: npx cucumber-js
+       run: npm test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
