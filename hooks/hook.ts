@@ -12,7 +12,14 @@ let page: Page;
 // });
 Before(async function () {
     const isCI = !!process.env.CI;
-    browser = await chromium.launch({ headless: true, args: isCI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [] });
+
+browser = await chromium.launch({
+    headless: true,
+    args: isCI
+        ? ['--no-sandbox', '--disable-setuid-sandbox']
+        : []
+});
+    // browser = await chromium.launch({ headless: true, args: isCI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [] });
 //  browser = await chromium.launch({ headless: true }); // GitHub needs headless: true
     this.context = await browser.newContext();
     this.page = await this.context.newPage(); 
