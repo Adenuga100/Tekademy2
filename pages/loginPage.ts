@@ -226,9 +226,14 @@ export class LoginPage {
 
     async clickLoginButton(): Promise<void> {
         await this.clickLoginBtn().scrollIntoViewIfNeeded();
-        await this.clickLoginBtn().click(); // 2 minutes timeout;
-        return await expect(this.homeTitle()).toBeVisible({timeout: 200000});
-
+        
+        await this.clickLoginBtn().click({ timeout: 30000 }); // 2 minutes timeout;
+        await this.page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 });
+  
+        // OR if not navigating to a new page, wait for the dashboard/home element
+         await this.page.waitForSelector('img[class="object-contain w-full"]', { timeout: 30000 });
+        // return await expect(this.homeTitle()).toBeVisible({timeout: 200000});
+       return;
         // console.log("Current URL:", this.page.url());
         // console.log("Page title:", await this.page.title());
 
